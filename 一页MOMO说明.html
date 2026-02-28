@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOMO光合酸 - 客户讲解一页纸</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Source Han Sans", sans-serif;
+            background: #faf9f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            box-shadow: 0 8px 32px rgba(180, 140, 30, 0.12);
+            padding: 12mm;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 头部区域 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #D4A517;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+            background: linear-gradient(to right, rgba(212, 165, 23, 0.08), transparent);
+            padding: 12px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .brand-section h1 {
+            font-size: 28px;
+            background: linear-gradient(135deg, #B8860B 0%, #D4A517 50%, #F4C430 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(180, 134, 11, 0.1);
+        }
+        
+        .brand-section .subtitle {
+            font-size: 11px;
+            color: #7a6a4e;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .slogan {
+            text-align: right;
+            font-size: 13px;
+            color: #B8860B;
+            font-weight: 700;
+            line-height: 1.5;
+            padding: 8px 12px;
+            background: rgba(212, 165, 23, 0.1);
+            border-radius: 6px;
+            border-right: 3px solid #D4A517;
+        }
+        
+        /* 核心数据条 */
+        .data-bar {
+            background: linear-gradient(135deg, #D4A517 0%, #E6C85E 50%, #F4D03F 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 12px;
+            box-shadow: 0 4px 12px rgba(180, 140, 30, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .data-item {
+            text-align: center;
+            position: relative;
+        }
+        
+        .data-item:not(:last-child):after {
+            content: "";
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .data-item strong {
+            display: block;
+            font-size: 20px;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            margin-bottom: 2px;
+        }
+        
+        .data-item span {
+            font-size: 11px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+        
+        /* 三栏布局 */
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        
+        .col-box {
+            background: linear-gradient(135deg, #fefefe 0%, #faf7f0 100%);
+            border-radius: 10px;
+            padding: 12px;
+            border-top: 4px solid #D4A517;
+            box-shadow: 0 2px 8px rgba(180, 140, 30, 0.08);
+            border: 1px solid rgba(212, 165, 23, 0.15);
+            transition: transform 0.2s;
+        }
+        
+        .col-box h3 {
+            font-size: 13px;
+            color: #8B6914;
+            margin-bottom: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(212, 165, 23, 0.2);
+        }
+        
+        .col-box ul {
+            list-style: none;
+            font-size: 10.5px;
+            line-height: 1.6;
+            color: #4a4030;
+        }
+        
+        .col-box li {
+            margin-bottom: 4px;
+            padding-left: 10px;
+            position: relative;
+        }
+        
+        .col-box li:before {
+            content: "•";
+            color: #D4A517;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        /* 配方专区 */
+        .formula-section {
+            background: linear-gradient(135deg, #fdf8e8 0%, #f9f1d8 100%);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 14px;
+            border-left: 5px solid #D4A517;
+            box-shadow: 0 2px 8px rgba(180, 140, 30, 0.1);
+        }
+        
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .formula-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(180, 140, 30, 0.1);
+            border: 1px solid rgba(212, 165, 23, 0.2);
+            transition: all 0.2s;
+        }
+        
+        .formula-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(180, 140, 30, 0.15);
+        }
+        
+        .formula-item .percent {
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #B8860B 0%, #D4A517 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .formula-item .name {
+            font-size: 11px;
+            color: #5a4a2f;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .formula-item .func {
+            font-size: 9px;
+            color: #7a6a50;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        
+        /* 技术标签 */
+        .tech-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #D4A517 0%, #E6C85E 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 10px;
+            margin-top: 6px;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(180, 140, 30, 0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        /* 联合治疗方案 */
+        .combo-section h3 {
+            font-size: 14px;
+            color: #8B6914;
+            margin-bottom: 10px;
+            border-left: 4px solid #D4A517;
+            padding-left: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .combo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .combo-card {
+            background: linear-gradient(135deg, #fefefe 0%, #faf7f0 100%);
+            border: 1px solid rgba(212, 165, 23, 0.25);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 10px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(180, 140, 30, 0.08);
+        }
+        
+        .combo-card .combo-title {
+            font-weight: 700;
+            color: #B8860B;
+            font-size: 12px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .combo-card .combo-target {
+            color: #8a7a60;
+            font-size: 9px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        
+        .combo-card .combo-effect {
+            color: #4a4030;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        
+        .plus-icon {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            color: #D4A517;
+            font-weight: bold;
+            font-size: 14px;
+            background: rgba(212, 165, 23, 0.1);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 操作流程 */
+        .process-flow {
+            background: linear-gradient(135deg, #f9f7f4 0%, #f5f3f0 100%);
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid rgba(212, 165, 23, 0.15);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+            text-align: center;
+        }
+        
+        .step {
+            flex: 1;
+            position: relative;
+            padding: 0 2px;
+        }
+        
+        .step:not(:last-child):after {
+            content: "→";
+            position: absolute;
+            right: -6px;
+            top: 20%;
+            color: #D4A517;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .step-num {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #D4A517 0%, #E6C85E 100%);
+            color: white;
+            border-radius: 50%;
+            line-height: 20px;
+            margin: 0 auto 4px;
+            font-weight: 700;
+            font-size: 10px;
+            box-shadow: 0 2px 4px rgba(180, 140, 30, 0.2);
+        }
+        
+        /* 底部信息 */
+        .footer-info {
+            position: absolute;
+            bottom: 10mm;
+            left: 12mm;
+            right: 12mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid rgba(212, 165, 23, 0.3);
+            padding-top: 10px;
+            font-size: 9px;
+            color: #9a8a6a;
+            font-weight: 500;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(transparent 60%, rgba(244, 208, 63, 0.4) 60%);
+            padding: 0 2px;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+            color: white;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 9px;
+            margin-left: 4px;
+            font-weight: 700;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .a4-page {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-page">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="brand-section">
+                <h1>MOMO 光合酸</h1>
+                <div class="subtitle">美白提亮，预先换肤，光电的最佳搭子</div>
+            </div>
+            <div class="slogan">
+                让光更透<br>
+                让肤更稳
+            </div>
+        </div>
+        
+        <!-- 核心数据 -->
+        <div class="data-bar">
+            <div class="data-item">
+                <strong>18%总酸</strong>
+                <span>低浓度高渗透</span>
+            </div>
+            <div class="data-item">
+                <strong>8-10min</strong>
+                <span>即刻提亮美白</span>
+            </div>
+            <div class="data-item">
+                <strong>5g/支</strong>
+                <span>可刷2-3人</span>
+            </div>
+            <div class="data-item">
+                <strong>980元/盒</strong>
+                <span>98元/支，零售499元/次</span>
+            </div>
+        </div>
+        
+        <!-- 三栏核心信息 -->
+        <div class="three-col">
+            <div class="col-box">
+                <h3>💛 核心优势</h3>
+                <ul>
+                    <li>提亮美白，控油抑菌</li>                   
+                    <li>温和低酸，敏感肌可用</li>
+                    <li>嵌段超溶技术，低酸高渗</li>   
+                    <li>凝胶性状，不易流动</li>
+                </ul>
+            </div>
+            
+            <div class="col-box">
+                <h3>⚡ 光电加成</h3>
+                <ul>
+                    <li>剥脱废旧角质，平滑肤质</li>
+                    <li>减少漫反射，提亮肤色</li>
+                    <li>提高穿透率和能量聚焦</li>
+                    <li>促进胶原更替，细腻肌肤</li>
+                </ul>
+            </div>
+
+            <div class="col-box">
+                <h3>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4A517" style="vertical-align:middle; margin-right:4px; opacity:0.9;">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                    适合人群
+                </h3>
+                <ul>
+                    <li>光电项目前预处理和维养</li>
+                    <li>油敏肌/敏感肌伴粉刺闭口</li>
+                    <li>肤色暗沉、痘印色沉</li>
+                    <li>追求温和焕肤体验者</li>
+                </ul>
+            </div>
+            
+            
+        </div>
+        
+        <!-- 配方详情 -->
+        <div class="formula-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <strong style="color:#8B6914; font-size:15px;">嵌段超溶技术 SUPRABLOC</strong>
+                <span class="tech-tag">三酸协同配方体系</span>
+            </div>
+            <div style="font-size:10px; color:#7a6a50; margin-bottom:8px;">使用泊洛沙姆独特的亲水亲油属性，促进三种酸的复合溶解</div>
+            
+            <div class="formula-grid" style="grid-template-rows: auto auto;">
+                <!-- 第一行：三种酸 -->
+                <div class="formula-item">
+                    <span class="percent">6%</span>
+                    <span class="name">羟基乙酸</span>
+                    <div class="func">促角质更新·提亮嫩肤</div>
+                </div>
+                <div class="formula-item">
+                    <span class="percent">2%</span>
+                    <span class="name">水杨酸</span>
+                    <div class="func">疏通毛孔·脂溶性不伤真皮</div>
+                </div>
+                <div class="formula-item">
+                    <span class="percent">10%</span>
+                    <span class="name">壬二酸</span>
+                    <div class="func">抗炎杀菌·淡化色沉</div>
+                </div>
+                <!-- 第二行：部队名称 -->
+                <div class="formula-item" style="display: flex; align-items: center; justify-content: center; min-height: 50px;">
+                    <span class="name" style="font-size: 12px; font-weight: 700; color: #5a4a2f;">"先锋清扫部队"</span>
+                </div>
+                <div class="formula-item" style="display: flex; align-items: center; justify-content: center; min-height: 50px;">
+                    <span class="name" style="font-size: 12px; font-weight: 700; color: #5a4a2f;">"隧道清理部队"</span>
+                </div>
+                <div class="formula-item" style="display: flex; align-items: center; justify-content: center; min-height: 50px;">
+                    <span class="name" style="font-size: 12px; font-weight: 700; color: #5a4a2f;">"修复重建部队"</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 联合治疗方案 -->
+        <div class="combo-section">
+            <h3>联合治疗方案设计 <span style="font-size:10px; color:#8a7a60; font-weight:normal;">(先酸后光电，2-4周/次)</span></h3>
+            <div class="combo-grid">
+                <div class="combo-card">
+                    <div class="plus-icon">+</div>
+                    <div class="combo-title">美白提亮组合</div>
+                    <div class="combo-target">适用：肤色不均、暗沉、雀斑</div>
+                    <div class="combo-effect">MOMO酸 → 光子/皮秒<br>酸平整角质增透光，光电精准击色素</div>
+                </div>
+                
+                <div class="combo-card">
+                    <div class="plus-icon">+</div>
+                    <div class="combo-title">清洁修复组合</div>
+                    <div class="combo-target">适用：毛孔堵塞、油脂分泌旺盛</div>
+                    <div class="combo-effect">MOMO酸 → 美芙炫/NAX/超清秀<br>酸焕亮+深层清洁双效</div>
+                </div>
+                
+                <div class="combo-card">
+                    <div class="plus-icon">+</div>
+                    <div class="combo-title">紧致抗衰组合</div>
+                    <div class="combo-target">适用：松弛、皱纹、老化</div>
+                    <div class="combo-effect">MOMO酸 → NIR牛奶光<br>表层平滑+红外深层紧致</div>
+                </div>
+                
+                <div class="combo-card">
+                    <div class="plus-icon">+</div>
+                    <div class="combo-title">抗炎舒敏组合<span class="badge">敏感肌</span></div>
+                    <div class="combo-target">适用：炎症型油性敏感肌</div>
+                    <div class="combo-effect">MOMO酸 → 舒敏之星+面膜<br>控油抗炎+屏障修复</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 操作流程 -->
+        <div style="background:#fff; border:1px solid rgba(212, 165, 23, 0.2); border-radius:8px; padding:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <strong style="color:#8B6914; font-size:12px;">标准操作SOP</strong>
+                <span style="font-size:9px; color:#9a8a6a;">单次护理全流程约45分钟</span>
+            </div>
+            <div class="process-flow">
+                <div class="process-steps">
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <div>拍摄VISIA<br>记录基线</div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <div>评估沟通<br>紫质/红色区</div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <div>温和清洁<br>氨基酸洁面</div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <div>保护<br>眼周/破损处</div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <div>刷酸<br>8-10分钟</div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">6</span>
+                        <div>清洗<br>检查残留</div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">7</span>
+                        <div>修复防晒<br>医用面膜</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部 -->
+        <div class="footer-info">
+            <div>时衔生物 | MOMO光合酸</div>
+            <div>专业但不高冷，有效但不复杂</div>
+        </div>
+    </div>
+</body>
+</html>
